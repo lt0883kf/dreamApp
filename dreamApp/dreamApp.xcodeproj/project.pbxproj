@@ -6,20 +6,76 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		0CDE5EEF2F7128DC001A3DB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CDE5ED72F7128DA001A3DB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CDE5EDE2F7128DA001A3DB6;
+			remoteInfo = dreamApp;
+		};
+		0CDE5EF92F7128DC001A3DB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CDE5ED72F7128DA001A3DB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CDE5EDE2F7128DA001A3DB6;
+			remoteInfo = dreamApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		0CA9670B2F6FE1F100CD7F11 /* dreamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dreamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CDE5EDF2F7128DA001A3DB6 /* dreamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dreamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CDE5EEE2F7128DC001A3DB6 /* dreamAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dreamAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CDE5EF82F7128DC001A3DB6 /* dreamAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dreamAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0C937F7E2F7135DC0011C428 /* Exceptions for "dreamApp" folder in "dreamApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0CDE5EDE2F7128DA001A3DB6 /* dreamApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0CA9670D2F6FE1F100CD7F11 /* dreamApp */ = {
+		0CDE5EE12F7128DA001A3DB6 /* dreamApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0C937F7E2F7135DC0011C428 /* Exceptions for "dreamApp" folder in "dreamApp" target */,
+			);
 			path = dreamApp;
+			sourceTree = "<group>";
+		};
+		0CDE5EF12F7128DC001A3DB6 /* dreamAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = dreamAppTests;
+			sourceTree = "<group>";
+		};
+		0CDE5EFB2F7128DC001A3DB6 /* dreamAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = dreamAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0CA967082F6FE1F100CD7F11 /* Frameworks */ = {
+		0CDE5EDC2F7128DA001A3DB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CDE5EEB2F7128DC001A3DB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CDE5EF52F7128DC001A3DB6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0CA967022F6FE1F100CD7F11 = {
+		0CDE5ED62F7128DA001A3DB6 = {
 			isa = PBXGroup;
 			children = (
-				0CA9670D2F6FE1F100CD7F11 /* dreamApp */,
-				0CA9670C2F6FE1F100CD7F11 /* Products */,
+				0CDE5EE12F7128DA001A3DB6 /* dreamApp */,
+				0CDE5EF12F7128DC001A3DB6 /* dreamAppTests */,
+				0CDE5EFB2F7128DC001A3DB6 /* dreamAppUITests */,
+				0CDE5EE02F7128DA001A3DB6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0CA9670C2F6FE1F100CD7F11 /* Products */ = {
+		0CDE5EE02F7128DA001A3DB6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0CA9670B2F6FE1F100CD7F11 /* dreamApp.app */,
+				0CDE5EDF2F7128DA001A3DB6 /* dreamApp.app */,
+				0CDE5EEE2F7128DC001A3DB6 /* dreamAppTests.xctest */,
+				0CDE5EF82F7128DC001A3DB6 /* dreamAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +108,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0CA9670A2F6FE1F100CD7F11 /* dreamApp */ = {
+		0CDE5EDE2F7128DA001A3DB6 /* dreamApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0CA967162F6FE1F300CD7F11 /* Build configuration list for PBXNativeTarget "dreamApp" */;
+			buildConfigurationList = 0CDE5F022F7128DC001A3DB6 /* Build configuration list for PBXNativeTarget "dreamApp" */;
 			buildPhases = (
-				0CA967072F6FE1F100CD7F11 /* Sources */,
-				0CA967082F6FE1F100CD7F11 /* Frameworks */,
-				0CA967092F6FE1F100CD7F11 /* Resources */,
+				0CDE5EDB2F7128DA001A3DB6 /* Sources */,
+				0CDE5EDC2F7128DA001A3DB6 /* Frameworks */,
+				0CDE5EDD2F7128DA001A3DB6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				0CA9670D2F6FE1F100CD7F11 /* dreamApp */,
+				0CDE5EE12F7128DA001A3DB6 /* dreamApp */,
 			);
 			name = dreamApp;
 			packageProductDependencies = (
 			);
 			productName = dreamApp;
-			productReference = 0CA9670B2F6FE1F100CD7F11 /* dreamApp.app */;
+			productReference = 0CDE5EDF2F7128DA001A3DB6 /* dreamApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		0CDE5EED2F7128DC001A3DB6 /* dreamAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CDE5F052F7128DC001A3DB6 /* Build configuration list for PBXNativeTarget "dreamAppTests" */;
+			buildPhases = (
+				0CDE5EEA2F7128DC001A3DB6 /* Sources */,
+				0CDE5EEB2F7128DC001A3DB6 /* Frameworks */,
+				0CDE5EEC2F7128DC001A3DB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0CDE5EF02F7128DC001A3DB6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0CDE5EF12F7128DC001A3DB6 /* dreamAppTests */,
+			);
+			name = dreamAppTests;
+			packageProductDependencies = (
+			);
+			productName = dreamAppTests;
+			productReference = 0CDE5EEE2F7128DC001A3DB6 /* dreamAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0CDE5EF72F7128DC001A3DB6 /* dreamAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CDE5F082F7128DC001A3DB6 /* Build configuration list for PBXNativeTarget "dreamAppUITests" */;
+			buildPhases = (
+				0CDE5EF42F7128DC001A3DB6 /* Sources */,
+				0CDE5EF52F7128DC001A3DB6 /* Frameworks */,
+				0CDE5EF62F7128DC001A3DB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0CDE5EFA2F7128DC001A3DB6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0CDE5EFB2F7128DC001A3DB6 /* dreamAppUITests */,
+			);
+			name = dreamAppUITests;
+			packageProductDependencies = (
+			);
+			productName = dreamAppUITests;
+			productReference = 0CDE5EF82F7128DC001A3DB6 /* dreamAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0CA967032F6FE1F100CD7F11 /* Project object */ = {
+		0CDE5ED72F7128DA001A3DB6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
-					0CA9670A2F6FE1F100CD7F11 = {
+					0CDE5EDE2F7128DA001A3DB6 = {
 						CreatedOnToolsVersion = 26.3;
+					};
+					0CDE5EED2F7128DC001A3DB6 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = 0CDE5EDE2F7128DA001A3DB6;
+					};
+					0CDE5EF72F7128DC001A3DB6 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = 0CDE5EDE2F7128DA001A3DB6;
 					};
 				};
 			};
-			buildConfigurationList = 0CA967062F6FE1F100CD7F11 /* Build configuration list for PBXProject "dreamApp" */;
+			buildConfigurationList = 0CDE5EDA2F7128DA001A3DB6 /* Build configuration list for PBXProject "dreamApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 0CA967022F6FE1F100CD7F11;
+			mainGroup = 0CDE5ED62F7128DA001A3DB6;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 0CA9670C2F6FE1F100CD7F11 /* Products */;
+			productRefGroup = 0CDE5EE02F7128DA001A3DB6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0CA9670A2F6FE1F100CD7F11 /* dreamApp */,
+				0CDE5EDE2F7128DA001A3DB6 /* dreamApp */,
+				0CDE5EED2F7128DC001A3DB6 /* dreamAppTests */,
+				0CDE5EF72F7128DC001A3DB6 /* dreamAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0CA967092F6FE1F100CD7F11 /* Resources */ = {
+		0CDE5EDD2F7128DA001A3DB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CDE5EEC2F7128DC001A3DB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CDE5EF62F7128DC001A3DB6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +245,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0CA967072F6FE1F100CD7F11 /* Sources */ = {
+		0CDE5EDB2F7128DA001A3DB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CDE5EEA2F7128DC001A3DB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CDE5EF42F7128DC001A3DB6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -124,8 +268,21 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0CDE5EF02F7128DC001A3DB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0CDE5EDE2F7128DA001A3DB6 /* dreamApp */;
+			targetProxy = 0CDE5EEF2F7128DC001A3DB6 /* PBXContainerItemProxy */;
+		};
+		0CDE5EFA2F7128DC001A3DB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0CDE5EDE2F7128DA001A3DB6 /* dreamApp */;
+			targetProxy = 0CDE5EF92F7128DC001A3DB6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		0CA967142F6FE1F300CD7F11 /* Debug */ = {
+		0CDE5F002F7128DC001A3DB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -186,7 +343,7 @@
 			};
 			name = Debug;
 		};
-		0CA967152F6FE1F300CD7F11 /* Release */ = {
+		0CDE5F012F7128DC001A3DB6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -239,17 +396,19 @@
 			};
 			name = Release;
 		};
-		0CA967172F6FE1F300CD7F11 /* Debug */ = {
+		0CDE5F032F7128DC001A3DB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 262NG36Y67;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dreamApp/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -281,17 +440,19 @@
 			};
 			name = Debug;
 		};
-		0CA967182F6FE1F300CD7F11 /* Release */ = {
+		0CDE5F042F7128DC001A3DB6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 262NG36Y67;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dreamApp/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -323,28 +484,144 @@
 			};
 			name = Release;
 		};
+		0CDE5F062F7128DC001A3DB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victor.dreamAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dreamApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dreamApp";
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		0CDE5F072F7128DC001A3DB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victor.dreamAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dreamApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dreamApp";
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
+		0CDE5F092F7128DC001A3DB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victor.dreamAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = dreamApp;
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		0CDE5F0A2F7128DC001A3DB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victor.dreamAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = dreamApp;
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0CA967062F6FE1F100CD7F11 /* Build configuration list for PBXProject "dreamApp" */ = {
+		0CDE5EDA2F7128DA001A3DB6 /* Build configuration list for PBXProject "dreamApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0CA967142F6FE1F300CD7F11 /* Debug */,
-				0CA967152F6FE1F300CD7F11 /* Release */,
+				0CDE5F002F7128DC001A3DB6 /* Debug */,
+				0CDE5F012F7128DC001A3DB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0CA967162F6FE1F300CD7F11 /* Build configuration list for PBXNativeTarget "dreamApp" */ = {
+		0CDE5F022F7128DC001A3DB6 /* Build configuration list for PBXNativeTarget "dreamApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0CA967172F6FE1F300CD7F11 /* Debug */,
-				0CA967182F6FE1F300CD7F11 /* Release */,
+				0CDE5F032F7128DC001A3DB6 /* Debug */,
+				0CDE5F042F7128DC001A3DB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CDE5F052F7128DC001A3DB6 /* Build configuration list for PBXNativeTarget "dreamAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CDE5F062F7128DC001A3DB6 /* Debug */,
+				0CDE5F072F7128DC001A3DB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CDE5F082F7128DC001A3DB6 /* Build configuration list for PBXNativeTarget "dreamAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CDE5F092F7128DC001A3DB6 /* Debug */,
+				0CDE5F0A2F7128DC001A3DB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0CA967032F6FE1F100CD7F11 /* Project object */;
+	rootObject = 0CDE5ED72F7128DA001A3DB6 /* Project object */;
 }
