@@ -1,17 +1,22 @@
 import AVFoundation
 import Foundation
-import Observation
 
-@Observable
 @MainActor
 final class AudioPlaybackService {
     private var audioPlayer: AVAudioPlayer?
     private var silentPlayer: AVAudioPlayer?
     private var playbackTask: Task<Void, Never>?
 
-    var isPlaying = false
-    var isSessionActive = false
-    var currentREMCycleNumber: Int?
+    private(set) var isPlaying = false
+    private(set) var isSessionActive = false
+    private(set) var currentREMCycleNumber: Int?
+
+    // 状態変更時にViewに通知するコールバック
+    var onStateChanged: (() -> Void)?
+
+    func applyVolume(_ value: Float) {
+        audioPlayer?.volume = value
+    }
 
     #if os(iOS)
     func configureAudioSession() throws {
@@ -20,34 +25,36 @@ final class AudioPlaybackService {
         try session.setActive(true)
     }
     #else
-    func configureAudioSession() throws {
-        // macOSではAVAudioSession不要
-    }
+    func configureAudioSession() throws {}
     #endif
 
     // MARK: - プレビュー再生
 
-    func playPreview(url: URL) throws {
+    func playPreview(url: URL, volume: Float = 1.0) throws {
         stop()
         try configureAudioSession()
         audioPlayer = try AVAudioPlayer(contentsOf: url)
+        audioPlayer?.volume = volume
         audioPlayer?.prepareToPlay()
         audioPlayer?.play()
         isPlaying = true
+        onStateChanged?()
     }
 
     func stop() {
         audioPlayer?.stop()
         audioPlayer = nil
         isPlaying = false
+        onStateChanged?()
     }
 
     // MARK: - 睡眠セッション再生
 
-    func startSleepSession(remPeriods: [REMPeriod], audioURL: URL) throws {
+    func startSleepSession(remPeriods: [REMPeriod], audioURL: URL, volume: Float = 1.0) throws {
         try configureAudioSession()
         try startSilentLoop()
         isSessionActive = true
+        onStateChanged?()
 
         playbackTask = Task { [weak self] in
             for period in remPeriods {
@@ -60,7 +67,7 @@ final class AudioPlaybackService {
 
                 guard !Task.isCancelled else { break }
 
-                await self?.startREMAudio(url: audioURL, cycleNumber: period.cycleNumber)
+                await self?.startREMAudio(url: audioURL, cycleNumber: period.cycleNumber, volume: volume)
 
                 let remDuration = period.endTime.timeIntervalSince(period.startTime)
                 if remDuration > 0 {
@@ -73,6 +80,7 @@ final class AudioPlaybackService {
 
             await MainActor.run {
                 self?.currentREMCycleNumber = nil
+                self?.onStateChanged?()
             }
         }
     }
@@ -87,6 +95,7 @@ final class AudioPlaybackService {
         isPlaying = false
         isSessionActive = false
         currentREMCycleNumber = nil
+        onStateChanged?()
     }
 
     // MARK: - Private
@@ -103,15 +112,17 @@ final class AudioPlaybackService {
         silentPlayer?.play()
     }
 
-    private func startREMAudio(url: URL, cycleNumber: Int) {
+    private func startREMAudio(url: URL, cycleNumber: Int, volume: Float) {
         do {
             silentPlayer?.volume = 0
             audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.volume = volume
             audioPlayer?.numberOfLoops = -1
             audioPlayer?.prepareToPlay()
             audioPlayer?.play()
             isPlaying = true
             currentREMCycleNumber = cycleNumber
+            onStateChanged?()
         } catch {
             silentPlayer?.volume = 0.01
         }
@@ -123,6 +134,7 @@ final class AudioPlaybackService {
         isPlaying = false
         currentREMCycleNumber = nil
         silentPlayer?.volume = 0.01
+        onStateChanged?()
     }
 
     private func generateSilentWAV(sampleRate: Int, numSamples: Int) -> Data {
