@@ -10,7 +10,10 @@ struct AudioSettingsView: View {
     @State private var showFileImporter = false
     @State private var errorMessage = ""
     @State private var showError = false
-    @State private var playbackService = AudioPlaybackService()
+    @State private var isPlaying = false
+    @AppStorage("appAudioVolume") private var volume: Double = 0.5
+
+    private let playbackService = AudioPlaybackService()
 
     private var currentUser: User? {
         users.first { $0.userId == currentUserId }
@@ -30,6 +33,23 @@ struct AudioSettingsView: View {
                 }
             }
 
+            Section("再生音量") {
+                HStack {
+                    Image(systemName: "speaker.fill")
+                        .foregroundStyle(.secondary)
+                    Slider(value: $volume, in: 0...1, step: 0.01)
+                        .onChange(of: volume) {
+                            playbackService.applyVolume(Float(volume))
+                        }
+                    Image(systemName: "speaker.wave.3.fill")
+                        .foregroundStyle(.secondary)
+                }
+                Text("\(Int(volume * 100))%")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .center)
+            }
+
             if audioFiles.isEmpty {
                 Section {
                     Text("音声ファイルが登録されていません")
@@ -40,7 +60,7 @@ struct AudioSettingsView: View {
                     ForEach(audioFiles) { file in
                         AudioFileRow(
                             file: file,
-                            isPlaying: playbackService.isPlaying,
+                            isPlaying: isPlaying,
                             onTogglePlay: { togglePreview(file: file) },
                             onSelect: { selectFile(file) }
                         )
@@ -50,6 +70,16 @@ struct AudioSettingsView: View {
             }
         }
         .navigationTitle("音声設定")
+        .toolbar {
+            if !audioFiles.isEmpty {
+                EditButton()
+            }
+        }
+        .onAppear {
+            playbackService.onStateChanged = { [self] in
+                isPlaying = playbackService.isPlaying
+            }
+        }
         .fileImporter(
             isPresented: $showFileImporter,
             allowedContentTypes: [UTType.audio],
@@ -95,7 +125,7 @@ struct AudioSettingsView: View {
         } else {
             let url = FileStorageService.audioFileURL(relativePath: file.localPath)
             do {
-                try playbackService.playPreview(url: url)
+                try playbackService.playPreview(url: url, volume: Float(volume))
             } catch {
                 errorMessage = "再生に失敗しました: \(error.localizedDescription)"
                 showError = true

@@ -6,10 +6,14 @@ struct SleepMonitorView: View {
     @AppStorage("currentUserId") private var currentUserId: String = ""
     @Query private var users: [User]
 
-    @State private var playbackService = AudioPlaybackService()
+    private let playbackService = AudioPlaybackService()
+    @State private var isPlaying = false
+    @State private var isSessionActive = false
+    @State private var currentREMCycle: Int?
     @State private var remPeriods: [REMPeriod] = []
     @State private var errorMessage = ""
     @State private var showError = false
+    @AppStorage("appAudioVolume") private var volume: Double = 0.5
 
     private var currentUser: User? {
         users.first { $0.userId == currentUserId }
@@ -58,9 +62,26 @@ struct SleepMonitorView: View {
                 }
             }
 
+            Section("再生音量") {
+                HStack {
+                    Image(systemName: "speaker.fill")
+                        .foregroundStyle(.secondary)
+                    Slider(value: $volume, in: 0...1, step: 0.01)
+                        .onChange(of: volume) {
+                            playbackService.applyVolume(Float(volume))
+                        }
+                    Image(systemName: "speaker.wave.3.fill")
+                        .foregroundStyle(.secondary)
+                }
+                Text("\(Int(volume * 100))%")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .center)
+            }
+
             // セッション操作
             Section {
-                if playbackService.isSessionActive {
+                if isSessionActive {
                     Button(role: .destructive) {
                         stopSession()
                     } label: {
@@ -85,9 +106,9 @@ struct SleepMonitorView: View {
             }
 
             // ステータス
-            if playbackService.isSessionActive {
+            if isSessionActive {
                 Section("ステータス") {
-                    if let cycle = playbackService.currentREMCycleNumber {
+                    if let cycle = currentREMCycle {
                         HStack {
                             Image(systemName: "waveform")
                                 .foregroundStyle(.blue)
@@ -109,7 +130,7 @@ struct SleepMonitorView: View {
                     ForEach(remPeriods) { period in
                         HStack {
                             Circle()
-                                .fill(period.cycleNumber == playbackService.currentREMCycleNumber ? .blue : .gray.opacity(0.3))
+                                .fill(period.cycleNumber == currentREMCycle ? .blue : .gray.opacity(0.3))
                                 .frame(width: 10, height: 10)
                             Text("第\(period.cycleNumber)周期")
                                 .foregroundStyle(.secondary)
@@ -123,6 +144,11 @@ struct SleepMonitorView: View {
         }
         .navigationTitle("睡眠モニター")
         .onAppear {
+            playbackService.onStateChanged = { [self] in
+                isPlaying = playbackService.isPlaying
+                isSessionActive = playbackService.isSessionActive
+                currentREMCycle = playbackService.currentREMCycleNumber
+            }
             calculateREMPeriods()
         }
         .alert("エラー", isPresented: $showError) {
@@ -160,7 +186,7 @@ struct SleepMonitorView: View {
         try? modelContext.save()
 
         do {
-            try playbackService.startSleepSession(remPeriods: periods, audioURL: audioURL)
+            try playbackService.startSleepSession(remPeriods: periods, audioURL: audioURL, volume: Float(volume))
         } catch {
             errorMessage = "セッションの開始に失敗しました: \(error.localizedDescription)"
             showError = true

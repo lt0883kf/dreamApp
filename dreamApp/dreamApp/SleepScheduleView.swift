@@ -9,7 +9,7 @@ struct SleepScheduleView: View {
     @State private var bedtime = Calendar.current.date(bySettingHour: 23, minute: 0, second: 0, of: Date()) ?? Date()
     @State private var wakeUpTime = Calendar.current.date(bySettingHour: 7, minute: 0, second: 0, of: Date()) ?? Date()
     @State private var remPeriods: [REMPeriod] = []
-    @State private var isSaved = false
+    @State private var showSavedAlert = false
 
     private var currentUser: User? {
         users.first { $0.userId == currentUserId }
@@ -50,17 +50,13 @@ struct SleepScheduleView: View {
                 }
             }
 
-            if isSaved {
-                Section {
-                    HStack {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundStyle(.green)
-                        Text("保存しました")
-                    }
-                }
-            }
         }
         .navigationTitle("睡眠設定")
+        .alert("保存完了", isPresented: $showSavedAlert) {
+            Button("OK") {}
+        } message: {
+            Text("睡眠設定を保存しました")
+        }
         .onAppear {
             loadSchedule()
         }
@@ -95,7 +91,7 @@ struct SleepScheduleView: View {
         }
 
         try? modelContext.save()
-        isSaved = true
+        showSavedAlert = true
         updateREMPeriods()
     }
 
