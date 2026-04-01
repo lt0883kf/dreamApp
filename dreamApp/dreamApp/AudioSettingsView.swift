@@ -70,11 +70,13 @@ struct AudioSettingsView: View {
             }
         }
         .navigationTitle("音声設定")
+        #if os(iOS)
         .toolbar {
             if !audioFiles.isEmpty {
                 EditButton()
             }
         }
+        #endif
         .onAppear {
             playbackService.onStateChanged = { [self] in
                 isPlaying = playbackService.isPlaying
